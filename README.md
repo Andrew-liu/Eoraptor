@@ -18,7 +18,7 @@ You can use blog simply, just to do below:
 
 ```py
 $ cd Eoraptor
-$ pip install -r requirements.txt  #安装所有依赖
+$ pip install -r requirements.txt  # install all dependence
 # start your mongo server
 $ python blog.py
 ```
