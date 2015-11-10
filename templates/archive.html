@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  {% for post in posts %}
+    <div class="title-line">
+      <h2 class="blog-post-title">{{ post["title"] }}</h2>
+      <p class="blog-post-meta">{{ post["date"].strftime("%Y-%m-%d %H:%M:%S") }} <a href="#">{{ post["tag"] }}</a></p>
+    </div><!-- /.blog-post -->  
+  {% end %}
+{% end %}
