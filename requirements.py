@@ -1,0 +1,11 @@
+Markdown==2.6.4
+MySQL-python==1.2.5
+backports.ssl-match-hostname==3.4.0.2
+bcrypt==2.0.0
+certifi==2015.9.6.2
+cffi==1.3.0
+pycparser==2.14
+pymongo==3.0.3
+six==1.10.0
+tornado==4.2.1
+wsgiref==0.1.2
