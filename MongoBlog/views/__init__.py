@@ -29,7 +29,8 @@ class BaseHandler(RequestHandler):
         user_json = self.get_secure_cookie("user")
         if not user_json:
             return None
-        return json_decode(user_json)
+        return user_json
+        # return json_decode(user_json)
 
     def get_int_argument(self, name, *arg, **kwargs):
         try:
