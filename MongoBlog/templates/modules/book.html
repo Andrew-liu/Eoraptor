@@ -1,0 +1,8 @@
+<div class="book">
+    <h3 class="book_title">{{ book["title"] }}</h3>
+    <div class="book_details">
+        <div class="book_date_released">Released: {{ book["date_released"]}}</div>
+        <h5>Description:</h5>
+        <div class="book_body">{% raw book["isbn"] %}</div>
+    </div>
+</div>
