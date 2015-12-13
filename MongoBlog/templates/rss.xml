@@ -15,10 +15,10 @@
     <entry>
       <id>http://{{ request.host }}/article/{{ entry["slug"] }}</id>
       <title type="text">{{ entry["title"] }}</title>
-      <link href="http://{{ request.host }}/article/{{ entry.slug }}" rel="alternate" type="text/html"/>
-      <updated>{{ entry.date.strftime(date_format) }}</updated>
+      <link href="http://{{ request.host }}/article/{{ entry["slug"] }}" rel="alternate" type="text/html"/>
+      <updated>{{ entry["date"].strftime(date_format) }}</updated>
       <content type="xhtml" xml:base="http://{{ request.host }}/">
-        <div xmlns="http://www.w3.org/1999/xhtml">{% raw entry.content %}</div>
+        <div xmlns="http://www.w3.org/1999/xhtml">{% raw entry["content"] %}</div>
       </content>
     </entry>
   {% end %}
