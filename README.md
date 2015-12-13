@@ -39,13 +39,14 @@ $ ./bin/test
 - [x] Markdown
 - [x] Paginator
 - [x] RSS
+- [x] Code highlight
 
 #TO DO
 
 - [ ] Read more
 - [ ] Search
 - [ ] Comment
-- [ ] Code highlight
+
 
 #License
 

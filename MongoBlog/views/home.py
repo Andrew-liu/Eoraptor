@@ -63,13 +63,18 @@ class EditHandler(BaseHandler):
         #  slug = unicodedata.normalize("NFKD", title).encode("ascii", "ignore")  # noqa
         slug = "-".join(title.lower().strip().split())
         #  print "slug: ", slug
+        content = markdown.markdown(
+            content,
+            extensions=['markdown.extensions.extra', 'markdown.extensions.fenced_code', 'markdown.extensions.codehilite'],  # noqa
+            safe_mode=True,
+            enable_attributes=False)
         post = {
             "title": title,
             "tag": tag,
             "slug": slug,
             "date": datetime.datetime.now(),
             # 增加代码高亮
-            "content": markdown.markdown(content)}
+            "content": content}  # noqa
         print post
         collection.insert_one(post)
         self.redirect("/article/" + slug)
