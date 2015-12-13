@@ -6,6 +6,18 @@
       <h2 class="blog-post-title">{{ post["title"] }}</h2>
       <p class="blog-post-meta">{{ post["date"].strftime("%Y-%m-%d %H:%M:%S") }} <a href="#">{{ post["tag"] }}</a></p>
       {{ post["content"] }}
-    </div><!-- /.blog-post -->  
+    </div><!-- /.blog-post -->
   {% end %}
+{% end %}
+{% block page %}
+<nav>
+  <ul class="pager">
+    {% if page.has_previous() %}
+        <li><a href="/page/{{ page.page_num - 1 }}">Previous</a></li>
+    {% end %}
+    {% if page.has_next() %}
+        <li><a href="/page/{{ page.page_num + 1 }}">Next</a></li>
+    {% end %}
+  </ul>
+</nav>
 {% end %}

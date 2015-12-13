@@ -6,11 +6,16 @@ from views.about import *
 
 hanlders = [
     (r"/", IndexHandler),
-    (r"/login", LoginHandler),
+    (r'/page/(\d+)', ArticleListHandler),
     (r'/edit', EditHandler),
     (r'/article/([^/]+)', ArticleHandler),
     (r'/archive', ArchiveHandler),
     (r'/about', AboutHandler),
+    # about login
+    (r'/login', LoginHandler),
+    (r'logout', LogoutHandler)
+    # RSS
+    (r'/rss', RSSHandler),
     ]
 
 

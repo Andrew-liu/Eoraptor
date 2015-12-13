@@ -4,21 +4,42 @@ import datetime
 import markdown
 import tornado
 from views import BaseHandler
+from controllers import page
 
 
 class IndexHandler(BaseHandler):
+
     def get(self):
+        """ 数据库存储结构
+        {u'title': u'Hello world',
+        u'content': u'<p>Hello world</p>',
+        u'tag': u'test', u'date': datetime.datetime(2015, 11, 10, 22, 45, 59, 428000), # noqa
+        u'_id': ObjectId('56420327354ac95b0f7a0a01'),
+        u'slug': u'hello-world'}
+        """
         # select from db, and transfer to html
         collection = self.db.blog
-        posts = collection.find()
-        """
-        if not posts.count():  # not item, to edit new one
-            self.redirect("/edit")
-            return
-        """
+        posts = list(collection.find())
+        p = page.Page(posts, 1)
         if not posts:
             raise tornado.web.HTTPError(404)
-        self.render('index.html', posts=posts)
+        self.render(
+            'index.html',
+            posts=p.current(),
+            page=p)
+
+
+class ArticleListHandler(BaseHandler):
+
+    def get(self, page_num):
+        posts = list(self.db.blog.find())
+        p = p.Page(post, page_num)
+        if not posts:
+            raise tornado.web.HTTPError(404)
+        self.render(
+            'index.html',
+            posts=p.current(),
+            page=p)
 
 
 class EditHandler(BaseHandler):
@@ -37,9 +58,9 @@ class EditHandler(BaseHandler):
         title = self.get_argument("title")
         tag = self.get_argument("tag")
         content = self.get_argument("content")
-        #  print "title = %s type= %s, tag = %s, content = %s" % (title, type(title), tag, content)
+        #  print "title = %s type= %s, tag = %s, content = %s" % (title, type(title), tag, content)  # noqa
         collection = self.db.blog  # get collection
-        #  slug = unicodedata.normalize("NFKD", title).encode("ascii", "ignore")
+        #  slug = unicodedata.normalize("NFKD", title).encode("ascii", "ignore")  # noqa
         slug = "-".join(title.lower().strip().split())
         #  print "slug: ", slug
         post = {
@@ -70,3 +91,11 @@ class ArchiveHandler(BaseHandler):
     def get(self):
         posts = self.db.blog.find()  # 生成一个可迭代的对象
         self.render("archive.html", posts=posts)
+
+
+class RSSHandler(BaseHandler):
+    def get(self):
+        entries = self.db.query("SELECT * FROM entries ORDER BY published "
+                                "DESC LIMIT 10")
+        self.set_header("Content-Type", "application/atom+xml")
+        self.render("feed.xml", entries=entries)

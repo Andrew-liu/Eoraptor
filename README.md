@@ -22,6 +22,9 @@ $ cd Eoraptor
 $ buildout
 # start your mongo server
 $ ./bin/MongoBlog
+
+# run TestCase
+$ ./bin/test
 ```
 
 
@@ -29,22 +32,20 @@ $ ./bin/MongoBlog
 #Done
 
 - [x] Using bootstrap to make website UI
-- [x]Basic function
+- [x] Basic function
 - [x] Archive
 - [x] About
-- [x] Login & Cookie
+- [x] Login & Cookie & Logout
 - [x] Markdown
+- [x] Paginator
 
 #TO DO
 
-- [x] RSS
-- [x] Read more
-- [x] Paginator
-- [x] Search
-- [x] Comment
-- [x] Code highlight
-- [x] Logout
-
+- [ ] RSS
+- [ ] Read more
+- [ ] Search
+- [ ] Comment
+- [ ] Code highlight
 
 #License
 
