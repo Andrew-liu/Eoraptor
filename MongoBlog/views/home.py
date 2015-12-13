@@ -33,7 +33,7 @@ class ArticleListHandler(BaseHandler):
 
     def get(self, page_num):
         posts = list(self.db.blog.find())
-        p = p.Page(post, page_num)
+        p = p.Page(posts, page_num)
         if not posts:
             raise tornado.web.HTTPError(404)
         self.render(
@@ -95,7 +95,7 @@ class ArchiveHandler(BaseHandler):
 
 class RSSHandler(BaseHandler):
     def get(self):
-        entries = self.db.query("SELECT * FROM entries ORDER BY published "
-                                "DESC LIMIT 10")
+        posts = list(self.db.blog.find())
         self.set_header("Content-Type", "application/atom+xml")
-        self.render("feed.xml", entries=entries)
+        print posts
+        self.render("rss.xml", entries=posts)

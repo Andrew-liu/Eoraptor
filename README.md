@@ -38,10 +38,10 @@ $ ./bin/test
 - [x] Login & Cookie & Logout
 - [x] Markdown
 - [x] Paginator
+- [x] RSS
 
 #TO DO
 
-- [ ] RSS
 - [ ] Read more
 - [ ] Search
 - [ ] Comment

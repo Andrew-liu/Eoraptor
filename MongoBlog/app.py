@@ -14,7 +14,7 @@ define("port", default=9999, help="--port format: --port=<int>", type=int)
 
 
 settings = dict(
-    title=u'Andrew Liu | Snow Memory',
+    blog_title=u'Andrew Liu | Snow Memory',
     template_path=os.path.join(os.path.dirname(__file__), "templates"),
     static_path=os.path.join(os.path.dirname(__file__), "statics"),
     cookie_secret="wnBzsGkRR2CMd0A0imH06CslRgSAQkrsus5kOq1/ZdI=",

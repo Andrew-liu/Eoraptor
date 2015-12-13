@@ -13,7 +13,7 @@ hanlders = [
     (r'/about', AboutHandler),
     # about login
     (r'/login', LoginHandler),
-    (r'logout', LogoutHandler)
+    (r'/logout', LogoutHandler),
     # RSS
     (r'/rss', RSSHandler),
     ]
