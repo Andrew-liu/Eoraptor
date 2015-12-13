@@ -28,22 +28,22 @@ $ ./bin/MongoBlog
 
 #Done
 
-1. Using bootstrap to make website UI
-2. Basic function
-3. Archive
-4. About
-5. Login & Cookie
-6. Markdown
+- [x] Using bootstrap to make website UI
+- [x]Basic function
+- [x] Archive
+- [x] About
+- [x] Login & Cookie
+- [x] Markdown
 
 #TO DO
 
-- RSS
-- Read more
-- Paginator
-- Search
-- Comment
-- Code highlight
-- Logout
+- [x] RSS
+- [x] Read more
+- [x] Paginator
+- [x] Search
+- [x] Comment
+- [x] Code highlight
+- [x] Logout
 
 
 #License
