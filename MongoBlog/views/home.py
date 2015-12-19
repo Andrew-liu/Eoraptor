@@ -104,3 +104,29 @@ class RSSHandler(BaseHandler):
         self.set_header("Content-Type", "application/atom+xml")
         print posts
         self.render("rss.xml", entries=posts)
+
+
+class SearchHandler(BaseHandler):
+
+    def get(self):
+        collection = self.db.blog
+        print "request: ", self.request.arguments
+        print "headers: ", self.request.headers
+        print "body: ", self.request.body
+        search_key = str(self.get_argument("key"))
+        print search_key
+        # 如果有关键字查找
+        if len(search_key) != 0:
+            # 按照key查找 posts
+            posts = list(collection.find({
+                "content": search_key
+            }))
+            print posts
+        else:
+            # 如果没有关键字, 返回全部posts
+            posts = list(collection.find())
+        p = page.Page(posts, 1)
+        self.render(
+            'index.html',
+            posts=p.current(),
+            page=p)

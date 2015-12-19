@@ -36,6 +36,8 @@ class Application(tornado.web.Application):
         # create db object, use `self.application.db` to get it.
         conn = MongoClient('localhost', 27017)
         self.db = conn.test_database
+        # 建立全文索引
+        self.db.blog.create_index("centent")
         # create new collection if itn't exist
 
 

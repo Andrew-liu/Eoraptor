@@ -9,6 +9,7 @@ hanlders = [
     (r'/page/(\d+)', ArticleListHandler),
     (r'/edit', EditHandler),
     (r'/article/([^/]+)', ArticleHandler),
+    (r'/search', SearchHandler),
     (r'/archive', ArchiveHandler),
     (r'/about', AboutHandler),
     # about login
