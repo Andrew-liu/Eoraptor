@@ -40,11 +40,10 @@ $ ./bin/test
 - [x] Paginator
 - [x] RSS
 - [x] Code highlight
+- [x] Search
 
 #TO DO
 
-- [ ] Read more
-- [ ] Search
 - [ ] Comment
 
 
